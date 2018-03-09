@@ -1,0 +1,20 @@
+Package: demgenerator
+Type: Package
+Title: Simulates versions of the true DEM from the MERIT DEM for floodplains
+Version: 0.1
+Date: 2018-01-15
+Authors@R: person("Laurence", "Hawker", email = "laurence.hawker@bristol.ac.uk",
+  role = c("aut", "cre"))
+Maintainer: Laurence Hawker <laurence.hawker@bristol.ac.uk>
+Description: Simulate plausible versions of a MERIT DEM for floodplains based on semi-variograms produced for several locations around the world.
+    Alternatively, users can generate their own semi-variograms if ground truth data (usually LIDAR) is available.
+License: GPL-3
+LazyData: TRUE
+Depends:
+  raster,
+  gstat
+Suggests: rasterVis, RColorBrewer,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr
