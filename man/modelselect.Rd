@@ -2,7 +2,7 @@
 % Please edit documentation in R/modelselect.r
 \name{modelselect}
 \alias{modelselect}
-\title{Script to read in the semi-variogram model to use}
+\title{Read in semi-variogram for simulation}
 \usage{
 modelselect(model = "")
 }
@@ -15,5 +15,5 @@ or 'Wax lake'.}
 Semi-variogram Model
 }
 \description{
-\code{modelselect} returns simulated DEMs
+\code{modelselect} Select Semi-Variogram for DEM Simulation
 }

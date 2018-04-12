@@ -1,6 +1,6 @@
-#' Script to read in the semi-variogram model to use
+#' Read in semi-variogram for simulation
 #'
-#'\code{modelselect} returns simulated DEMs
+#'\code{modelselect} Select Semi-Variogram for DEM Simulation
 #'
 #' @param model semi-variogram model to use in simulation
 #' Choose from one of 'Burdekin', 'Ebro', 'Fens DSM', Fens DTM','Mekong','Mississippi','Po Delta'

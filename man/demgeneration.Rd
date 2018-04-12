@@ -4,7 +4,7 @@
 \alias{demgeneration}
 \title{Simulate DEMs based on a semi-variogram}
 \usage{
-demgeneration(target_raster, sv_model, maxdist, nsim)
+demgeneration(target_raster, sv_model, maxdist = 0.01, nsim = 10)
 }
 \arguments{
 \item{target_raster}{raster: The raster to make simulations from.This should
