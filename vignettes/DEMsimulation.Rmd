@@ -1,5 +1,5 @@
 ---
-title: "MERITdemgeneratorr"
+title: "DEMsimulation"
 author: "Laurence Hawker"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

@@ -1,7 +1,6 @@
-
 #' Simulate DEMs based on a semi-variogram
 #'
-#' \code{demgeneration} returns simulated DEMs
+#' \code{demsimulation} returns simulated DEMs
 #'
 #' @param target_raster raster: The raster to make simulations from.This should
 #'   be projected. It is advised to set water bodies to NA using a water mask
@@ -14,7 +13,7 @@
 #' @param nsim number(optional): Number of simulations. Default = 10
 #' @return Simulated Rasters: In the form of a raster stack
 #' @export
-demgeneration <- function(target_raster, sv_model, maxdist=0.01, nsim=10) {
+demsimulation <- function(target_raster, sv_model, maxdist=0.01, nsim=10) {
     #Read in data to use
     #data("MERIT_semi_variograms_NoNugget_Threshold90")
     #Convert target raster to dataframe
