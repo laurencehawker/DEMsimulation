@@ -1,5 +1,11 @@
-# DEMsimulation
-R Package to simulate plausible versions of SRTM and MERIT DEMs 
 
-This is a line from RStudio
- Another test
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+### DEMsimulation
+
+R Package to simulate plausible versions of SRTM and MERIT DEMs in floodplains.
+
+### Installation
+
+``` r
+devtools::install_github("laurencehawker/DEMsimulation")
+```

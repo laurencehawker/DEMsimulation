@@ -1,0 +1,22 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+### DEMsimulation
+
+R Package to simulate plausible versions of SRTM and MERIT DEMs in floodplains. 
+
+### Installation
+
+```{r installation, eval = FALSE}
+devtools::install_github("laurencehawker/DEMsimulation")
+```
