@@ -2,7 +2,7 @@
 #'
 #' \code{demsimulation_LC} returns simulated DEMs
 #'
-#' @param target_raster raster: The raster to make simulations from.This should
+#' @param DEM raster: The raster to make simulations from.This should
 #'   be projected. It is advised to set water bodies to NA using a water mask
 #'   (e.g Pekel et al., 2016). See Hawker et al., 2018 for guidance.
 #' @param LC_map Landcover map generated using download.CCI
@@ -12,14 +12,14 @@
 #' @param nsim number(optional): Number of simulations. Default = 10
 #' @return Simulated Rasters: In the form of a raster stack
 #' @export
-demsimulation_LC <- function(target_raster, LC_map, maxdist=0.01, nsim=10) {
+demsimulation_LC <- function(DEM, LC_map, maxdist=0.01, nsim=10) {
   #Read in data to use
   data("cci_lookup")
   data("MERIT_AvgSV_LC")
   #Convert target raster to dataframe
-  if (missing(target_raster))
-    stop("Raster to simulate missing")
-  target_dem_df <- raster::as.data.frame(target_raster, xy = TRUE, na.rm = TRUE)  #Data frame with simulation locations
+  if (missing(DEM))
+    stop("DEM missing")
+  target_dem_df <- raster::as.data.frame(DEM, xy = TRUE, na.rm = TRUE)  #Data frame with simulation locations
   names(target_dem_df) <- c("X", "Y", "MERIT_Z")  # Rename
   # Read in model to use
   model <- MERIT_Avg_LC
@@ -55,7 +55,7 @@ demsimulation_LC <- function(target_raster, LC_map, maxdist=0.01, nsim=10) {
   simDEM <- raster::stack()
 
     veg_to_predict <- veg_to_analyse[i] #CCI number
-    MERIT_veg_to_analyse <- overlay(target_raster, CCI, fun = function(x, y) {
+    MERIT_veg_to_analyse <- overlay(DEM, CCI, fun = function(x, y) {
       x[y!=veg_to_predict] <- NA
       return(x)
     }) # Selects only MERIT Z that is within CCI
@@ -76,7 +76,7 @@ demsimulation_LC <- function(target_raster, LC_map, maxdist=0.01, nsim=10) {
 
     for (j in 1:nsim){
       simxy <- sims[c('X','Y',paste0('sim',j))] #Read in xyz of simulations
-      simraster <- raster(target_raster) 		# create empty raster
+      simraster <- raster(DEM) 		# create empty raster
       cells <- cellFromXY(simraster, simxy[,1:2]) # compute cell numbers
       simraster[cells] <- simxy[,3] #Put in Heights from simulation
       names(simraster) <- paste0('Sim ',j) #Change raster name for stack

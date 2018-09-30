@@ -56,7 +56,8 @@ plot(Ba_MERIT)
 ```
 
 There is an option to simulate by landcover semi-variograms, whereby the DEM is divided by landcover class, with the appropriate semi-variogram applied to related pixels. When a landcover type is not within the DEMsimulation database, the average floodplains semi-vaiogram is used. The available landcover semi-variograms are:
-```{r, message=FALSE,echo=FALSE}
+
+```{r, message=FALSE}
 data("MERIT_AvgSV_LC")
 names(MERIT_Avg_LC)
 ```
