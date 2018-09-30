@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
-### DEMsimulation
+# DEMsimulation
 
 R Package to simulate plausible versions of SRTM and MERIT DEMs in floodplains. DEMs can be simulated from either:
 
@@ -23,7 +23,7 @@ These semi-variograms were calculated for 20 floodplain locations around the wor
 
 The spatial error structures used to simulate the DEMs have only been calculated for floodplain locations, and thus should only be applied to floodplain locations. A similar procedure can be used for landscapes with steep relief with several papers assessing DEM simulation and slope failure at the bottom of this page.
 
-### Installation
+## Installation
 
 Currently, DEMsimulation is only available on Github. To download and install use the following:
 
@@ -31,7 +31,7 @@ Currently, DEMsimulation is only available on Github. To download and install us
 devtools::install_github("laurencehawker/DEMsimulation")
 ```
 
-### Using DEMsimulation
+## Using DEMsimulation
 
 First, load DEMsimulation
 
@@ -39,7 +39,7 @@ First, load DEMsimulation
 library(DEMsimulation)
 ```
 
-## DEM
+### DEM
 
 Next load a DEM. For this example, we will use the MERIT DEM for Ba, Fiji which is included in the package. Oterwise load your DEM (MERIT or SRTM) using the raster package. To download MERIT DEM data please see  [MERIT DEM](http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/). Do note the semi-variograms have so far only been calculated for MERIT and SRTM at 90m resolution.
 
@@ -62,7 +62,7 @@ data("MERIT_AvgSV_LC")
 names(MERIT_Avg_LC)
 ```
 
-## Landcover
+### Landcover
 
 The Landcover classes were taken from the Climate Change Institute [CCI](http://maps.elie.ucl.ac.be/CCI/viewer/index.php) for the year 2000. The user can either download this themselves, or use the download.CCI function in DEMsimulation. The download.CCI function is handy as it downloads and resamples the landcover data from it's native resolution of 300m to 90m (DEM resolution).
 
@@ -78,7 +78,7 @@ LC_Map_local <- raster::crop(LC_Map_local,ex) #Crop CCI Landcover Map
 CCI <-raster::resample(lcmap_rascrop,targetDEM,method='ngb') #Resample to DEM resolution
 ```
 
-## DEM Simulation
+### DEM Simulation
 
 Now to simulate those DEMs! The user can choose to simulate either by landcover class (slower but marginally 'better' quality simulations), by the average floodplain semi-variogram, or by any other landcover semivariogram.
 
@@ -111,7 +111,7 @@ sim_Crop <- demsimulation(Ba_MERIT,sv=modelselectCrop, maxdist = 0.01, nsim = 20
 writeRaster(sim_Crop,filename = 'Ba_MERIT_cropsv', bylayer=TRUE, suffix='numbers',format='GTiff')
 ```
 
-### Performance
+## Performance
 
 Let's access the speed of DEM simulation
 
@@ -127,22 +127,22 @@ mbm <- microbenchmark(
 plot(mbm)
 ```
 
-### Use in Flood Models
+## Use in Flood Models
 
 The main motivation behind this work was to simulate DEMs for flood studies as typically only a single DEM are used, especially in data-sparse areas. In our [WRR paper](https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2018WR023279) we simulate DEMs for An Giang Province in Vietnam and Ba in Fiji, and use the simulated DEMs in a LISFLOOD-FP flood model. By using multiple DEMs, we can produce a probablistic flood map based on topographic uncertainty. Therefore, the DEM simulation procedure is invaluable in helping to explore the impact of topographic uncertainty on flood inundation extent. LISFLOOD-FP is freely available for non-commercial use from [here](http://www.bristol.ac.uk/geography/research/hydrology/models/lisflood/)
 
 DEM simulation has also recently been applied to a study assessing river-floodplain connectivity in the [Congo Basin](https://agu.confex.com/agu/18chapman4/meetingapp.cgi/Paper/341976). 
 
-### Future Plans
+## Future Plans
 
 Future plans include adding more locations (and thus landcover classes), and assessing the NASADEM when it is released.
 
-### Citation
+## Citation
 
 When using this code please cite:
 
 
-### References & related works
+## References & related works
 
 
 
