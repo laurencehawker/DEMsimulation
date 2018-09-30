@@ -1,8 +1,8 @@
 Package: DEMsimulation
 Type: Package
-Title: Simulates versions of the true DEM from the MERIT DEM for floodplains
+Title: Simulates plausible versions of MERIT and SRTM DEMs in floodplains
 Version: 0.1
-Date: 2018-01-15
+Date: 2018-09-27
 Authors@R: person("Laurence", "Hawker", email = "laurence.hawker@bristol.ac.uk",
   role = c("aut", "cre"))
 Maintainer: Laurence Hawker <laurence.hawker@bristol.ac.uk>
@@ -10,7 +10,7 @@ URL: https://github.com/laurencehawker/DEMsimulation
 Description: Simulate plausible versions of a MERIT DEM or SRTM DEM for floodplains based on semi-variograms. An average floodplain semi-variogram can be used or one based on landcover class.
     Alternatively, users can generate their own semi-variograms if ground truth data (usually LIDAR) is available.
 License: GPL-3
-LazyData: TRUE
+LazyData: true
 Depends:
   raster,
   gstat
