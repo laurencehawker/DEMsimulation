@@ -1,0 +1,19 @@
+citHeader("To cite DEMsimulation in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Implications of Simulating Global Digital Elevation Models for Flood Inundation Studies",
+  author       = personList(as.person("Laurence Hawker"),
+                   as.person("Jonathan Rougier"),as.person("Jeffrey Neal"),as.person("Paul Bates"),as.person("Leanne Archer"),as.person("Dai Yamazaki")),
+  journal      = "Water Resources Research",
+  year         = "2018",
+  volume       = "",
+  number       = "",
+  pages        = "",
+  url          = "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR023279",
+
+  textVersion  =
+  paste("Hawker L, Rougier J, Neal J, Bates P,Archer L,Yamazaki,D (2018)",
+        "Implications of Simulating Global Digital Elevation Models for Flood Inundation Studies.",
+        "Water Resources Research.",
+        "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR023279.")
+)

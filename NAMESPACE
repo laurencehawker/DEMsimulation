@@ -3,5 +3,3 @@
 export(demsimulation)
 export(demsimulation_LC)
 export(download.CCI)
-export(modelselect)
-export(writeRasterDEM)
