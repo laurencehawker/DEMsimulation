@@ -4,8 +4,8 @@
 \alias{demsimulation_LC}
 \title{Simulate DEMs based on a semi-variogram based on landcover}
 \usage{
-demsimulation_LC(DEM, LC_map, sv = "MERIT", maxdist = 0.01, nsim = 10,
-  debuglevel = -1)
+demsimulation_LC(DEM, LC_map, sv = "MERIT", maxdist = 0.01,
+  nsim = 10, debuglevel = -1)
 }
 \arguments{
 \item{DEM}{raster: The raster to make simulations from.This should
