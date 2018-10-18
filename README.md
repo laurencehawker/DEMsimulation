@@ -10,7 +10,7 @@ R Package to simulate plausible versions of SRTM and MERIT DEMs in floodplains. 
 
 These semi-variograms were calculated for 20 floodplain locations around the world. More details of the procedure can be found in:
 
-Hawker, L., Rougier, J., Neal, J., Bates, P., Archer, L., & Yamazaki, D. (2018). Implications of Simulating Global Digital Elevation Models for Flood Inundation Studies. Water Resources Research.<DOI:10.1029/2018WR023279>
+Hawker, L., Rougier, J., Neal, J., Bates, P., Archer, L., & Yamazaki, D. (2018). Implications of Simulating Global Digital Elevation Models for Flood Inundation Studies. Water Resources Research, 54.<DOI:10.1029/2018WR023279>
 
 The spatial error structures used to simulate the DEMs have only been calculated for floodplain locations, and thus should only be applied to floodplain locations. A similar procedure can be used for landscapes with steep relief with several papers assessing DEM simulation and slope failure at the bottom of this page.
 
@@ -30,9 +30,6 @@ First, load DEMsimulation
 
 ``` r
 library(DEMsimulation)
-#> Warning: package 'raster' was built under R version 3.4.4
-#> Warning: package 'sp' was built under R version 3.4.4
-#> Warning: package 'gstat' was built under R version 3.4.4
 ```
 
 ### DEM
@@ -180,7 +177,6 @@ Let's assess the speed of DEM simulation
 ``` r
 #For the Ba Catchment. DEM size 79x138 pixels
 library(microbenchmark)
-#> Warning: package 'microbenchmark' was built under R version 3.4.4
 library(ggplot2)
 mbm <- microbenchmark(
   'Simulation_Landcover' = {Simulation_Landcover <- demsimulation_LC(Ba_MERIT,LC_map = Ba_CCI,sv='MERIT', maxdist = 0.01, nsim = 20,debuglevel = 0)},
@@ -189,20 +185,20 @@ mbm <- microbenchmark(
   times = 3,unit = "s"
 )
 #> [1] "Using MERIT Semi-variograms"
-#> [1] "Using MERIT Semi-variograms"
-#> [1] "Using Overall semi-variograms"
-#> [1] "Using MERIT Semi-variograms"
 #> [1] "Using Cropland semi-variograms"
 #> [1] "Using MERIT Semi-variograms"
 #> [1] "Using Overall semi-variograms"
 #> [1] "Using MERIT Semi-variograms"
 #> [1] "Using MERIT Semi-variograms"
+#> [1] "Using Cropland semi-variograms"
+#> [1] "Using MERIT Semi-variograms"
+#> [1] "Using Cropland semi-variograms"
 #> [1] "Using MERIT Semi-variograms"
 #> [1] "Using Overall semi-variograms"
 #> [1] "Using MERIT Semi-variograms"
-#> [1] "Using Cropland semi-variograms"
 #> [1] "Using MERIT Semi-variograms"
-#> [1] "Using Cropland semi-variograms"
+#> [1] "Using MERIT Semi-variograms"
+#> [1] "Using Overall semi-variograms"
 autoplot(mbm,log=FALSE)+labs(title='DEM Simulation Performance for Ba')
 ```
 
